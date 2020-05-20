@@ -1,3 +1,5 @@
+![](https://github.com/joshuabeny1999/telegram-server-update-bot/workflows/Main%20workflow/badge.svg)
+
 Telegram Server Update Bot
 ==========================
 This is a program which can notify a User via Telegram about Ubuntu Server upgrades. It use commant `apt list --upgradeable` for determine new package updates.
@@ -24,9 +26,9 @@ BotAPIToken: "YOUR_TELEGRAM_API_TOKEN"
 ```
 ### 3. Get your ChatUserID
 1. Start program on your Server in setup mode: `./telegram-server-update-bot botsetup`
-2. Open your own Telegram bot with the App and send command `/getchatid`
-3. You should get now the chatid
-4. On your server stop program with keyboard shortcut `CTRL+C`
+2. Open now your own Telegram bot with the Telegram-App and send command `/getchatid`
+3. You should recieve now the chatid
+4. On your Server stop program with keyboard shortcut `CTRL+C`
 5. Extend now the config with the chatUserID
 ```yaml
 BotAPIToken: "YOUR_TELEGRAM_API_TOKEN"
