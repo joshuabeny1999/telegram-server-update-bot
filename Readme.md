@@ -17,10 +17,11 @@ You need to create an telegram Bot to get an API-Key. For creating a Bot do foll
 3. Now you will recieve an Telegram bot API Token.
 
 ### 2. Install Application
-1. Download and Upload program to your Ubuntu Server the latest Build from the Release:
-2. Make it executeable: `chmod +x telegram-server-update-pot`
-3. Place it on the server in a location you like. For example `/home/<<userdir>>/telegram-server-update-bot`
-4. Create an config yaml `/home/<<userdir>>/.telegram-server-update-bot.yaml`
+1. Download and Upload program to your Ubuntu Server. You find it under [Releases](https://github.com/joshuabeny1999/telegram-server-update-bot/releases/latest) (Check your ARM architecture with `dpkg --print-architecture`) 
+2. Untar it: `tar -xvzf telegram-server-update-bot_vXX_linux_amd64.tar.gz`
+3. Make it executeable: `chmod +x telegram-server-update-bot`
+4. Place it on the server in a location you like. For example `/home/<<userdir>>/telegram-server-update-bot`
+5. Create an config yaml `/home/<<userdir>>/.telegram-server-update-bot.yaml`
 ```yaml
 BotAPIToken: "YOUR_TELEGRAM_API_TOKEN"
 ```
