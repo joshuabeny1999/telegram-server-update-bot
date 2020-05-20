@@ -37,7 +37,7 @@ jobs:
         GOARCH: "arm"
         GOOS: linux
   release-linux-arm64:
-    name: release linux/amd64
+    name: release linux/arm64
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
