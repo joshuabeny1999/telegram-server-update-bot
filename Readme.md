@@ -1,4 +1,4 @@
-![](https://github.com/joshuabeny1999/telegram-server-update-bot/workflows/Main%20workflow/badge.svg)
+![](https://github.com/joshuabeny1999/telegram-server-update-bot/workflows/Buildw%20Release/badge.svg)
 
 Telegram Server Update Bot
 ==========================
