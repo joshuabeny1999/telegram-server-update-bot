@@ -1,8 +1,6 @@
-![](https://github.com/joshuabeny1999/telegram-server-update-bot/workflows/Buildw%20Release/badge.svg)
-
 Telegram Server Update Bot
 ==========================
-This is a program which can notify a User via Telegram about Ubuntu Server upgrades. It use commant `apt list --upgradeable` for determine new package updates.
+This is a program which can notify a User via Telegram about Ubuntu Server upgrades. It use command `apt list --upgradeable` for determine new package updates.
 
 The program is written in [go](golang.org).
 
