@@ -40,7 +40,7 @@ ChatUserID: "YOUR_CHAT_USER_ID"
 To get now notified about new package updates, you could run the script periodically via cron.
 For example you could check for updates every day at 6pm (Use `crontab -e ` for adding a cron entry):
 ```
- 0 18 * * * /home/<<userdir>>/telegram-server-update-bot updatecheck 
+ 0 18 * * * /home/<<userdir>>/telegram-server-update-bot update-check 
 ```
 
 Optional Configuration
