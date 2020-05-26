@@ -69,7 +69,7 @@ func updatecheck() {
 			os.Exit(1)
 		}
 
-		message += "<i>" + strconv.Itoa(packCount) + " packages can be updated <br />(" + strconv.Itoa(packSecCount) + " are security updates):</i>\n\n" + packageList
+		message += "<i>" + strconv.Itoa(packCount) + " packages can be updated \n(" + strconv.Itoa(packSecCount) + " are security updates):</i>\n\n" + packageList
 		msg := tgbotapi.NewMessage(chatUserID, message)
 		msg.ParseMode = "HTML"
 
