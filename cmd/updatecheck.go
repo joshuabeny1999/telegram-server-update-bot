@@ -41,6 +41,7 @@ func updatecheck() {
 	}
 	packages := strings.Split(string(out), "\n")
 	packCount := 0
+	packSecCount := 0
 	message := "<b>" + serverName + "</b>\n"
 	packageList := ""
 	for _, pack := range packages {
@@ -51,7 +52,12 @@ func updatecheck() {
 			continue
 		default:
 			packSplitted := strings.Split(pack, "/")
-			packageList += "- " + packSplitted[0] + "\n"
+			if strings.Contains(pack, "security") {
+				packSecCount++
+				packageList += "- <b>" + packSplitted[0] + " [security]</b>\n"
+			} else {
+				packageList += "- " + packSplitted[0] + "\n"
+			}
 			packCount++
 		}
 	}
@@ -63,7 +69,7 @@ func updatecheck() {
 			os.Exit(1)
 		}
 
-		message += "<i>" + strconv.Itoa(packCount) + " packages can be updated:</i>\n\n<pre>" + packageList + "</pre>"
+		message += "<i>" + strconv.Itoa(packCount) + " packages can be updated \n(" + strconv.Itoa(packSecCount) + " are security updates):</i>\n\n" + packageList
 		msg := tgbotapi.NewMessage(chatUserID, message)
 		msg.ParseMode = "HTML"
 
