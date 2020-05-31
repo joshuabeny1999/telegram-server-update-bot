@@ -18,6 +18,12 @@ var rootCmd = &cobra.Command{
 	Long:  `Check for Ubuntu server upgrades with apt and then send an Telegram message using a Telegram bot.`,
 }
 
+var cmdVersion = &cobra.Command{
+	Use:   "Version",
+	Short: "Check your Version",
+	Long: `Check your Version`,
+}
+
 var cmdUpdateCheck = &cobra.Command{
 	Use:   "update-check",
 	Short: "Check if Server upgrade available and send message",
@@ -43,6 +49,7 @@ var cmdBotSetup = &cobra.Command{
 func Exec() {
 	rootCmd.AddCommand(cmdUpdateCheck)
 	rootCmd.AddCommand(cmdBotSetup)
+	rootCmd.AddCommand(cmdVersion)
 	err := rootCmd.Execute()
 	if err != nil {
 		fmt.Println(err)
