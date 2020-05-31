@@ -50,7 +50,7 @@ func botsetup() {
 		// Extract the command from the Message.
 		switch update.Message.Command() {
 		case "help":
-			msg.Text = "type /getchatid to get your chatid\nPlease see instructions on <a href='https://github.com/joshuabeny1999/telegram-server-update-bot/blob/master/Readme.md'>Github</a> for more details"
+			msg.Text = "type /getchatid to get your chatid\n /version to get your version\nPlease see instructions on <a href='https://github.com/joshuabeny1999/telegram-server-update-bot/blob/master/Readme.md'>Github</a> for more details"
 		case "getchatid":
 			msg.Text = "Your chatid is: <pre>" + chatid + "</pre>"
 		case "version":
