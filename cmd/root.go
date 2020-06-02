@@ -3,10 +3,9 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/spf13/cobra"
-
-	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
 )
 
@@ -53,7 +52,7 @@ func Exec() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.telegram-server-update-bot.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is path-to-script/.telegram-server-update-bot.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -62,15 +61,15 @@ func initConfig() {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
 	} else {
-		// Find home directory.
-		home, err := homedir.Dir()
+		// Find current script dir.
+		ex, err := os.Executable()
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-
-		// Search config in home directory with name ".telegram-server-update-bot" (without extension).
-		viper.AddConfigPath(home)
+		exPath := filepath.Dir(ex)
+		// Search config in dir where script is located with name ".telegram-server-update-bot" (without extension).
+		viper.AddConfigPath(exPath)
 		viper.SetConfigName(".telegram-server-update-bot")
 	}
 
