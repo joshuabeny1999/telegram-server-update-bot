@@ -69,7 +69,7 @@ With this comand you could test if you would recieve an message to your telegram
 
 Following command will send the message "This is my custom Message" to the Bot. If you do not add any custom message, it will send an default one.
 ```
- /path/to/telegram-server-update-bot update-check testmessage This is my custom Message
+ /path/to/telegram-server-update-bot testmessage This is my custom Message
 ```
 
 ### help
