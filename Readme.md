@@ -19,7 +19,7 @@ You need to create an telegram Bot to get an API-Key. For creating a Bot do foll
 2. Untar it: `tar -xvzf telegram-server-update-bot_x.y.z_Linux_amd64.tar.g`
 3. Make it executeable: `chmod +x telegram-server-update-bot`
 4. Place it on the server in a location you like. For example `/home/<<userdir>>/telegram-server-update-bot`
-5. Create an config yaml `/home/<<userdir>>/.telegram-server-update-bot.yaml`
+5. Create an config yaml `/home/<<userdir>>/.telegram-server-update-bot.yaml` (If it is in same directory as script, it should be found automatically)
 ```yaml
 BotAPIToken: "YOUR_TELEGRAM_API_TOKEN"
 ```
@@ -54,5 +54,11 @@ This name will be used as title in each message. If no ServerName is set. It wil
 If you now on each server put an different server name in the config, you can tell them apart insite the Telegram Chat.
 
 ### Config File location
-You could place the yaml configuration file whereever you want. If it is another location than the home directory,
+You could place the yaml configuration file whereever you want. If it is another location than the same directory where the script is located,
 you could run the program with the option `--config` and provide custom location to config file.
+
+For example if you want to place the config in /etc/
+```
+ /path/to/telegram-server-update-bot update-check --config /etc/telegram-server-update-bot.yaml
+```
+

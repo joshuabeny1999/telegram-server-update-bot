@@ -3,10 +3,9 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/spf13/cobra"
-
-	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
 	goVersion "go.hein.dev/go-version"
 )
@@ -85,15 +84,15 @@ func initConfig() {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
 	} else {
-		// Find home directory.
-		home, err := homedir.Dir()
+		// Find current script dir.
+		ex, err := os.Executable()
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-
-		// Search config in home directory with name ".telegram-server-update-bot" (without extension).
-		viper.AddConfigPath(home)
+		exPath := filepath.Dir(ex)
+		// Search config in dir where script is located with name ".telegram-server-update-bot" (without extension).
+		viper.AddConfigPath(exPath)
 		viper.SetConfigName(".telegram-server-update-bot")
 	}
 
