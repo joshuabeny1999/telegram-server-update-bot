@@ -1,2 +1,2 @@
 set GOOS=linux
-go build -o telegram-server-update-bot
+go build -o telegram-server-update-bot -ldflags "-X github.com/joshuabeny1999/telegram-server-update-bot/cmd.commit=none -X github.com/joshuabeny1999/telegram-server-update-bot/cmd.date=%DATE% -X github.com/joshuabeny1999/telegram-server-update-bot/cmd.version=test"

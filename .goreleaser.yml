@@ -6,6 +6,7 @@ builds:
   - CGO_ENABLED=0
   goos:
     - linux
+  ldflags: -X "github.com/joshuabeny1999/telegram-server-update-bot/cmd.version={{.Version}}" -X "github.com/joshuabeny1999/telegram-server-update-bot/cmd.commit={{.Commit}}" -X "github.com/joshuabeny1999/telegram-server-update-bot/cmd.date={{.Date}}"
 archives:
 - replacements:
     linux: Linux
