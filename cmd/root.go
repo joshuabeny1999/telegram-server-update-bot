@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -26,6 +27,16 @@ var cmdUpdateCheck = &cobra.Command{
 	Run: func(cmd *cobra.Command,
 		args []string) {
 		updatecheck()
+	},
+}
+
+var cmdTestMessage = &cobra.Command{
+	Use:   "testmessage",
+	Short: "Sends an message to the telegram client",
+	Long:  `Use this command to test if you would recieve a message from your server. Optional you could pass an custom message after the command.`,
+	Run: func(cmd *cobra.Command,
+		args []string) {
+		testmessage(strings.Join(args, " "))
 	},
 }
 
@@ -62,6 +73,7 @@ func Exec() {
 	rootCmd.AddCommand(cmdUpdateCheck)
 	rootCmd.AddCommand(cmdBotSetup)
 	rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(cmdTestMessage)
 
 	err := rootCmd.Execute()
 	if err != nil {
