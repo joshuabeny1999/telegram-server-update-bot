@@ -62,3 +62,15 @@ For example if you want to place the config in /etc/
  /path/to/telegram-server-update-bot update-check --config /etc/telegram-server-update-bot.yaml
 ```
 
+Additional Commands
+-------------------
+### testmessage
+With this comand you could test if you would recieve an message to your telegram client. You could also send an custom Message.
+
+Following command will send the message "This is my custom Message" to the Bot. If you do not add any custom message, it will send an default one.
+```
+ /path/to/telegram-server-update-bot update-check testmessage This is my custom Message
+```
+
+### help
+The command and every sub command has an help option. Just add option `-h` or `--help`
