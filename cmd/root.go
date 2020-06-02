@@ -8,6 +8,7 @@ import (
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
+	goVersion "go.hein.dev/go-version"
 )
 
 var cfgFile string
@@ -39,10 +40,30 @@ var cmdBotSetup = &cobra.Command{
 	},
 }
 
+var (
+	shortened  = false
+	version    = "dev"
+	commit     = "none"
+	date       = "unknown"
+	output     = "json"
+	versionCmd = &cobra.Command{
+		Use:   "version",
+		Short: "Version will output the current build information",
+		Long:  ``,
+		Run: func(_ *cobra.Command, _ []string) {
+			resp := goVersion.FuncWithOutput(shortened, version, commit, date, output)
+			fmt.Print(resp)
+			return
+		},
+	}
+)
+
 // Exec command to run script
 func Exec() {
 	rootCmd.AddCommand(cmdUpdateCheck)
 	rootCmd.AddCommand(cmdBotSetup)
+	rootCmd.AddCommand(versionCmd)
+
 	err := rootCmd.Execute()
 	if err != nil {
 		fmt.Println(err)
@@ -53,7 +74,9 @@ func Exec() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.telegram-server-update-bot.yaml)")
+	versionCmd.Flags().BoolVarP(&shortened, "short", "s", false, "Print just the version number.")
+	versionCmd.Flags().StringVarP(&output, "output", "o", "json", "Output format. One of 'yaml' or 'json'.")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is path-to-script/.telegram-server-update-bot.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
